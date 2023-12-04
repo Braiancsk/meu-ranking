@@ -1,0 +1,1009 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/keen-slider@6.8.5/keen-slider.min.css"
+    />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Conte com nosso app e assessoria especializada para organizar 
+      rankings de forma fácil e manter os jogadores motivados o ano todo."
+    />
+    <link rel="shortcut icon" href="./images/favicon.png" type="image/x-icon" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Poppins&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>Meu Ranking</title>
+  </head>
+  <body>
+    <section class="hero-section">
+      <header class="container nav-wrapper">
+        <img src="./images/logo.webp" alt="Logo" width="200" height="70" />
+        <nav class="desktop-nav">
+          <ul>
+            <li>
+              <a href="/">Início</a>
+            </li>
+            <li>
+              <a href="#vantagens">Vantagens</a>
+            </li>
+            <li><a href="#depoimentos">Depoimentos</a></li>
+            <li><a href="#apps">Apps</a></li>
+            <li><a href="#quem-somos">Quem somos</a></li>
+          </ul>
+        </nav>
+        <button>Entrar</button>
+
+        <div class="mobile-hamb">
+          <img
+            src="./images/hamburger.svg"
+            alt="Menu Hamburger"
+            width="30"
+            height="20"
+            role="button"
+            onclick="handleToggleMobileMenu()"
+          />
+        </div>
+        <nav class="nav-mobile-wrapper">
+          <div>
+            <img src="./images/logo.webp" alt="Logo" width="200" height="70" />
+            <img
+              src="./images/close-icon.svg"
+              alt="Ícone de X para fechar o menu"
+              width="30"
+              height="4"
+              role="button"
+              onclick="handleToggleMobileMenu()"
+            />
+          </div>
+          <ul>
+            <li>
+              <a href="/">Início</a>
+            </li>
+            <li>
+              <a href="/">Vantagens</a>
+            </li>
+            <li><a href="/">Depoimentos</a></li>
+            <li><a href="/">Apps</a></li>
+            <li><a href="/">Quem somos</a></li>
+          </ul>
+
+          <button>Entrar</button>
+        </nav>
+      </header>
+
+      <div class="container hero-info-wrapper">
+        <div>
+          <h1>
+            Organize seu<br />
+            ranking de
+            <span data-random-sport></span>
+          </h1>
+          <p>
+            Conte com nosso app e assessoria especializada para organizar
+            rankings de forma fácil e manter os jogadores motivados o ano todo.
+          </p>
+
+          <button type="button" onclick="handleOpenVideo()">
+            <span>
+              <img
+                src="./images/play-icon.svg"
+                alt="Ícone de play"
+                width="15"
+                height="21"
+              />
+            </span>
+            Assista ao vídeo
+          </button>
+        </div>
+
+        <div>
+          <strong>Organize seu Ranking Teste gratuitamente!</strong>
+          <form>
+            <div>
+              <label for="name">Nome</label>
+              <input
+                required
+                id="name"
+                type="text"
+                placeholder="Qual é o seu nome?"
+                spellcheck="false"
+              />
+            </div>
+            <div>
+              <label for="phone">Telefone com Whatsapp</label>
+              <input
+                id="phone"
+                type="text"
+                placeholder="DDD + Telefone"
+                required
+                oninput="applyPhoneMask(this)"
+              />
+            </div>
+            <div>
+              <label>Esportes</label>
+              <div>
+                <div
+                  role="button"
+                  onclick="handleOpenSportsModal()"
+                  id="selectedSportsMessage"
+                  style="cursor: pointer"
+                >
+                  Selecione um ou mais esportes
+                </div>
+                <span></span>
+
+                <img
+                  src="./images/arrow-down-icon.svg"
+                  alt="Setinha para baixo"
+                  width="16"
+                  height="16"
+                />
+
+                <div class="sports-modal">
+                  <div>
+                    <input
+                      class="sport-label"
+                      type="checkbox"
+                      id="tênis"
+                      name="Tênis"
+                    />
+                    <label class="sport-label" for="tênis">Tênis</label>
+                  </div>
+
+                  <div>
+                    <input
+                      class="sport-label"
+                      type="checkbox"
+                      id="beach-tennis"
+                      name="Beach Tennis"
+                    />
+                    <label class="sport-label" for="beach-tennis"
+                      >Beach Tennis</label
+                    >
+                  </div>
+
+                  <div>
+                    <input
+                      class="sport-label"
+                      type="checkbox"
+                      id="pádel"
+                      name="Pádel"
+                    />
+                    <label class="sport-label" class="sport-label" for="pádel"
+                      >Pádel</label
+                    >
+                  </div>
+
+                  <div>
+                    <input
+                      class="sport-label"
+                      type="checkbox"
+                      id="futevôlei"
+                      name="Futevôlei"
+                    />
+                    <label class="sport-label" for="futevôlei">Futevôlei</label>
+                  </div>
+
+                  <div>
+                    <input
+                      class="sport-label"
+                      type="checkbox"
+                      id="squash"
+                      name="Squash"
+                    />
+                    <label class="sport-label" for="squash">Squash</label>
+                  </div>
+
+                  <div>
+                    <input
+                      class="sport-label"
+                      type="checkbox"
+                      id="vôlei-de-praia"
+                      name="Vôlei de Praia"
+                    />
+                    <label class="sport-label" for="vôlei-de-praia"
+                      >Vôlei de Praia</label
+                    >
+                  </div>
+
+                  <div>
+                    <input
+                      class="sport-label"
+                      type="checkbox"
+                      id="tênis-de-mesa"
+                      name="Tênis de Mesa"
+                    />
+                    <label class="sport-label" for="tênis-de-mesa"
+                      >Tênis de Mesa</label
+                    >
+                  </div>
+
+                  <div>
+                    <input
+                      class="sport-label"
+                      type="checkbox"
+                      id="pickleball"
+                      name="Pickleball"
+                    />
+                    <label class="sport-label" for="pickleball"
+                      >Pickleball</label
+                    >
+                  </div>
+
+                  <div>
+                    <input
+                      class="sport-label"
+                      type="checkbox"
+                      id="raquetinha"
+                      name="Raquetinha"
+                    />
+                    <label class="sport-label" for="raquetinha"
+                      >Raquetinha</label
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <button type="submit">Enviar contato</button>
+          </form>
+        </div>
+      </div>
+
+      <!-- MENSAGEM DE OBRIGADO QUE APARECE APÓS O SUBMIT DO FORMULÁRIO
+        
+        <div class="thanks-message">
+        <strong>Obrigado pelo contato!</strong>
+        <span>
+          Em até 1 dia útil falaremos com você no<br />
+          whatsapp.
+        </span>
+        <span>Equipe Meu Ranking</span>
+      </div> -->
+
+      <div id="my-keen-slider" class="keen-slider">
+        <div class="keen-slider__slide showcase-slider">
+          <img
+            src="./images/banners/tenis.webp"
+            alt="Imagem de um jogo de Tênis"
+            height="178"
+          />
+          <strong>Tênis</strong>
+        </div>
+        <div class="keen-slider__slide showcase-slider">
+          <img
+            src="./images/banners/beach-tennis.webp"
+            alt="Imagem de um jogo de Beach Tennis"
+            height="178"
+          />
+          <strong>Beach Tennis</strong>
+        </div>
+        <div class="keen-slider__slide showcase-slider">
+          <img
+            src="./images/banners/padel.webp"
+            alt="Imagem de um jogo de Pádel"
+            height="178"
+          />
+          <strong>Pádel</strong>
+        </div>
+        <div class="keen-slider__slide showcase-slider">
+          <img
+            src="./images/banners/futvolei.webp"
+            alt="Imagem de um jogo de Futevôlei"
+            height="178"
+          />
+          <strong>Futevôlei</strong>
+        </div>
+        <div class="keen-slider__slide showcase-slider">
+          <img
+            src="./images/banners/squash.webp"
+            alt="Imagem de um jogo de Squash"
+            height="178"
+          />
+          <strong>Squash</strong>
+        </div>
+        <div class="keen-slider__slide showcase-slider">
+          <img
+            src="./images/banners/volei-de-praia.webp"
+            alt="Imagem de um jogo de Vôlei de Praia"
+            height="178"
+          />
+          <strong>Vôlei de Praia</strong>
+        </div>
+        <div class="keen-slider__slide showcase-slider">
+          <img
+            src="./images/banners/tenis-de-mesa.webp"
+            alt="Imagem de um jogo de Tênis de Mesa"
+            height="178"
+          />
+          <strong>Tênis de Mesa</strong>
+        </div>
+        <div class="keen-slider__slide showcase-slider">
+          <img
+            src="./images/banners/pickle-ball.webp"
+            alt="Imagem de um jogo de Pickleball"
+            height="178"
+          />
+          <strong>Pickleball</strong>
+        </div>
+        <div class="keen-slider__slide showcase-slider">
+          <img
+            src="./images/banners/raquetinha.webp"
+            alt="Imagem de um jogo de Raquetinha"
+            height="178"
+          />
+          <strong>Raquetinha</strong>
+        </div>
+      </div>
+    </section>
+
+    <section id="vantagens" class="container why-use-section">
+      <strong>Porque usar o Meu Ranking</strong>
+      <span></span>
+
+      <div class="why-use-section-cards-wrapper">
+        <div>
+          <img src="./images/curve-line.svg" alt="Linha curva" />
+          <img
+            src="./images/why-use-card-images/new-metodology.webp"
+            alt=""
+            width="66"
+            height="103"
+            style="top: -13px"
+          />
+          <strong>Metodologia inovadora</strong>
+          <p>
+            Um app com sistemática simples onde os atletas jogam regularmente,
+            sem eliminação e stress dos torneios, mas com a competitividade que
+            os esportes exigem, pois todos jogos valem pontos.
+          </p>
+        </div>
+
+        <div>
+          <img src="./images/curve-line.svg" alt="Linha curva" />
+          <img
+            src="./images/why-use-card-images/easy-to-organize.webp"
+            alt=""
+            width="91"
+            height="110"
+            style="top: -13px"
+          />
+          <strong>Facilidade na organização</strong>
+          <p>
+            Estamos há 7 anos em parceria com outros organizadores uma forma de
+            facilitar ao máximo a organização do ranking! Uma metodologia
+            testada com regulamento pronto para você começar!
+          </p>
+        </div>
+
+        <div>
+          <img src="./images/curve-line.svg" alt="Linha curva" />
+          <img
+            src="./images/why-use-card-images/permanent-assesory.webp"
+            alt=""
+            width="101"
+            height="104"
+            style="top: -13px"
+          />
+          <strong>Assessoria permanente</strong>
+          <p>
+            Não é só o app! É uma assessoria constante de uma equipe que
+            organiza e ajuda outros organizadores a administrarem seus rankings.
+            Estamos aqui o tempo todo para te ajudar!
+          </p>
+        </div>
+
+        <div>
+          <img src="./images/curve-line.svg" alt="Linha curva" />
+          <img
+            src="./images/why-use-card-images/new-receipt.webp"
+            alt=""
+            width="96"
+            height="106"
+            style="top: -13px"
+          />
+          <strong>Nova fonte de receita</strong>
+          <p>
+            Criamos um modelo pensado para te ajudar a gerar uma receita
+            recorrente a partir da gestão eficiente do ranking que trará maior
+            tranquilidade financeira no seu dia a dia.
+          </p>
+        </div>
+
+        <div>
+          <img src="./images/curve-line.svg" alt="Linha curva" />
+          <img
+            src="./images/why-use-card-images/more-squares.webp"
+            alt=""
+            width="121"
+            height="82"
+          />
+          <strong>Maior ocupação das quadras</strong>
+          <p>
+            Maximize seus recursos ao ocupar aqueles períodos de quadras vazias
+            com jogos do ranking impulsionando assim a receita por meio do
+            aumento de alugueis e consumo em seu espaço.
+          </p>
+        </div>
+
+        <div>
+          <img src="./images/curve-line.svg" alt="Linha curva" />
+          <img
+            src="./images/why-use-card-images/ball.webp"
+            alt=""
+            width="101"
+            height="103"
+          />
+          <strong>Mais estímulo aos jogadores</strong>
+          <p>
+            Um jeito inovador de motivar seu grupo a jogar de forma constante
+            sem que tenha que participar de torneios. Seja na simples ou na
+            dupla, sempre buscamos novas formas de motivar os jogadores.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="depoimentos" class="feedbacks-section">
+      <div class="green-bg"></div>
+      <div class="orange-bg"></div>
+      <div class="container feedback-info-wrapper">
+        <strong>O que os organizadores e jogadores acham do Meu Ranking</strong>
+
+        <div class="feedbacks-buttons-wrapper">
+          <button class="tab-feedback-button active" data-feedback="organizers">
+            <img
+              class="feedback-filter-button-img"
+              src="./images/organizers/sergio.webp"
+              alt=""
+              width="38"
+              height="38"
+            />
+            <img
+              class="feedback-filter-button-img"
+              src="./images/organizers/ricardo.webp"
+              alt=""
+              width="38"
+              height="38"
+            />
+            <img
+              class="feedback-filter-button-img"
+              src="./images/organizers/celso.webp"
+              alt=""
+              width="38"
+              height="38"
+            />
+
+            Organizadores
+          </button>
+
+          <button class="tab-feedback-button" data-feedback="players">
+            <img
+              src="./images/players/boilerplate-1.webp"
+              alt=""
+              width="38"
+              height="38"
+            />
+            <img
+              src="./images/players/boilerplate-2.webp"
+              alt=""
+              width="38"
+              height="38"
+            />
+            <img
+              src="./images/players/boilerplate-3.webp"
+              alt=""
+              width="38"
+              height="38"
+            />
+
+            jogadores
+          </button>
+        </div>
+
+        <div id="feedbacks-slider" class="keen-slider">
+          <div class="keen-slider__slide feedback-slider">
+            <div class="feedback-slide" data-feedback-category="organizers">
+              <div>
+                <img
+                  class="feedback-person-img"
+                  src="./images/organizers/sergio.webp"
+                  width="70"
+                  height="70"
+                />
+                <img
+                  class="team-logo"
+                  src="./images/organizers/sergio-logo.webp"
+                  width="38"
+                  height="38"
+                />
+              </div>
+
+              <div>
+                <p>
+                  ”O aplicativo é sensacional. Atende de forma simples e fácil
+                  todas as necessidades que temos, além de um suporte rápido as
+                  demandas que aparecem.”
+                </p>
+                <strong>Sérgio Felipeto</strong>
+                <span>Viciados no Tennis | Belo Horizonte-MG</span>
+              </div>
+            </div>
+
+            <div class="feedback-slide" data-feedback-category="organizers">
+              <div>
+                <img
+                  class="feedback-person-img"
+                  src="./images/organizers/ricardo.webp"
+                  width="70"
+                  height="70"
+                />
+                <img
+                  class="team-logo"
+                  src="./images/organizers/ricardo-logo.webp"
+                  width="38"
+                  height="38"
+                />
+              </div>
+
+              <div>
+                <p>
+                  ”O aplicativo é sensacional. Atende de forma simples e fácil
+                  todas as necessidades que temos, além de um suporte rápido as
+                  demandas que aparecem.”
+                </p>
+                <strong>Ricardo Martins</strong>
+                <span>Barragem do Cerrado - Brasília-DF</span>
+              </div>
+            </div>
+
+            <div class="feedback-slide" data-feedback-category="players" hidden>
+              <div>
+                <img
+                  src="./images/players/boilerplate-1.webp"
+                  width="70"
+                  height="70"
+                />
+                <img
+                  src="./images/players/boilerplate-logo.webp"
+                  width="38"
+                  height="38"
+                />
+              </div>
+
+              <div>
+                <p>
+                  ”Bem projetado! Fácil acesso às informações e lançamento dos
+                  resultados!”
+                </p>
+                <strong>Gu1Pro</strong>
+                <span>Depoimento de jogador</span>
+              </div>
+            </div>
+
+            <div class="feedback-slide" data-feedback-category="players" hidden>
+              <div>
+                <img
+                  src="./images/players/boilerplate-2.webp"
+                  width="70"
+                  height="70"
+                />
+                <img
+                  src="./images/players/boilerplate-logo.webp"
+                  width="38"
+                  height="38"
+                />
+              </div>
+
+              <div>
+                <p>
+                  ”Muito bom. App intuitivo e consistente. Suporte sempre a
+                  disposição com apoio imediato.”
+                </p>
+                <strong>José Eduardo</strong>
+                <span>Depoimento de jogador</span>
+              </div>
+            </div>
+          </div>
+          <div class="keen-slider__slide feedback-slider">
+            <div class="feedback-slide" data-feedback-category="organizers">
+              <div>
+                <img
+                  class="feedback-person-img"
+                  src="./images/organizers/celso.webp"
+                  width="70"
+                  height="70"
+                />
+                <img
+                  class="team-logo"
+                  src="./images/organizers/celso-logo.webp"
+                  width="38"
+                  height="38"
+                />
+              </div>
+
+              <div>
+                <p>
+                  ”O ranking mudou o movimento das quadras de minha cidade.
+                  Antes os jogadores só faziam aulas e agora jogam mais e
+                  competem mais. É outra realidade!”
+                </p>
+                <strong>Celso Pinheiro</strong>
+                <span>Ranking Dourados | Dourados-MS</span>
+              </div>
+            </div>
+
+            <div class="feedback-slide" data-feedback-category="players" hidden>
+              <div>
+                <img
+                  src="./images/players/boilerplate-3.webp"
+                  width="70"
+                  height="70"
+                />
+                <img
+                  src="./images/players/boilerplate-logo.webp"
+                  width="38"
+                  height="38"
+                />
+              </div>
+
+              <div>
+                <p>
+                  ”Muito bom o app! Ajuda bastante no acompanhamento do ranking
+                  e marcação de jogos.”
+                </p>
+                <strong>Pedro Silva</strong>
+                <span>Depoimento de jogador</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div id="feedbacks-slider-mobile" class="keen-slider">
+          <div class="keen-slider__slide feedback-slider-mobile">
+            <div class="feedback-slide" data-feedback-category="organizers">
+              <img
+                class="feedback-person-img"
+                src="./images/organizers/sergio.webp"
+                width="70"
+                height="70"
+              />
+              <img
+                class="team-logo"
+                src="./images/organizers/sergio-logo.webp"
+                width="38"
+                height="38"
+              />
+            </div>
+
+            <div class="feedback-slide" data-feedback-category="players" hidden>
+              <img
+                src="./images/players/boilerplate-1.webp"
+                width="70"
+                height="70"
+              />
+              <img
+                src="./images/players/boilerplate-logo.webp"
+                width="38"
+                height="38"
+              />
+            </div>
+
+            <div
+              class="feedback-slide slider-info-wrapper"
+              data-feedback-category="organizers"
+            >
+              <p>
+                ”O aplicativo é sensacional. Atende de forma simples e fácil
+                todas as necessidades que temos, além de um suporte rápido as
+                demandas que aparecem.”
+              </p>
+              <strong>Sergio Felipeto</strong>
+              <span>Viciados no Tennis | Belo Horizonte-MG</span>
+            </div>
+
+            <div
+              class="feedback-slide slider-info-wrapper"
+              data-feedback-category="players"
+              hidden
+            >
+              <p>
+                ”Bem projetado! Fácil acesso às informações e lançamento dos
+                resultados!”
+              </p>
+              <strong>Gu1Pro</strong>
+              <span>Depoimento de jogador</span>
+            </div>
+          </div>
+
+          <div class="keen-slider__slide feedback-slider-mobile">
+            <div class="feedback-slide" data-feedback-category="organizers">
+              <img
+                class="feedback-person-img"
+                src="./images/organizers/ricardo.webp"
+                width="70"
+                height="70"
+              />
+              <img
+                class="team-logo"
+                src="./images/organizers/ricardo-logo.webp"
+                width="38"
+                height="38"
+              />
+            </div>
+
+            <div class="feedback-slide" data-feedback-category="players" hidden>
+              <img
+                src="./images/players/boilerplate-2.webp"
+                width="70"
+                height="70"
+              />
+              <img
+                src="./images/players/boilerplate-logo.webp"
+                width="38"
+                height="38"
+              />
+            </div>
+
+            <div
+              class="feedback-slide slider-info-wrapper"
+              data-feedback-category="organizers"
+            >
+              <p>
+                ”O aplicativo é sensacional. Atende de forma simples e fácil
+                todas as necessidades que temos, além de um suporte rápido as
+                demandas que aparecem.”
+              </p>
+              <strong>Ricardo Martins</strong>
+              <span>Barragem do Cerrado - Brasília-DF</span>
+            </div>
+
+            <div
+              class="feedback-slide slider-info-wrapper"
+              data-feedback-category="players"
+              hidden
+            >
+              <p>
+                ”Muito bom. App intuitivo e consistente. Suporte sempre a
+                disposição com apoio imediato.”
+              </p>
+              <strong>José Eduardo</strong>
+              <span>Depoimento de jogador</span>
+            </div>
+          </div>
+
+          <div class="keen-slider__slide feedback-slider-mobile">
+            <div class="feedback-slide" data-feedback-category="organizers">
+              <img
+                class="feedback-person-img"
+                src="./images/organizers/celso.webp"
+                width="70"
+                height="70"
+              />
+              <img
+                class="team-logo"
+                src="./images/organizers/celso-logo.webp"
+                width="38"
+                height="38"
+              />
+            </div>
+
+            <div class="feedback-slide" data-feedback-category="players" hidden>
+              <img
+                src="./images/players/boilerplate-3.webp"
+                width="70"
+                height="70"
+              />
+              <img
+                src="./images/players/boilerplate-logo.webp"
+                width="38"
+                height="38"
+              />
+            </div>
+
+            <div
+              class="feedback-slide slider-info-wrapper"
+              data-feedback-category="organizers"
+            >
+              <p>
+                ”O ranking mudou o movimento das quadras de minha cidade. Antes
+                os jogadores só faziam aulas e agora jogam mais e competem mais.
+                É outra realidade!”
+              </p>
+              <strong>Celso Pinheiro</strong>
+              <span>Ranking Dourados | Dourados-MS </span>
+            </div>
+
+            <div
+              class="feedback-slide slider-info-wrapper"
+              data-feedback-category="players"
+              hidden
+            >
+              <p>
+                ”O aplicativo é sensacional. Atende de forma simples e fácil
+                todas as necessidades que temos, além de um suporte rápido as
+                demandas que aparecem.”
+              </p>
+              <strong>Pedro Silva</strong>
+              <span>Depoimento de jogador</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="apps" class="container">
+      <div class="apps-wrapper">
+        <div class="phone-container">
+          <img data-app-screen alt="Tela do APP" width="306" height="662" />
+        </div>
+
+        <div class="app-info-wrapper">
+          <strong>Apps Meu Ranking</strong>
+          <div>
+            <button class="app-button active" data-app-filter="organizer">
+              Organizador
+            </button>
+            <button class="app-button" data-app-filter="player">Jogador</button>
+          </div>
+          <p data-app-description></p>
+          <div class="store-links-wrapper">
+            <a href="" data-app-link="playstore">
+              <img
+                src="./images/google-play.webp"
+                alt="Imagem do link para google play store"
+                width="142"
+                height="42"
+              />
+            </a>
+
+            <a href="" data-app-link="appstore">
+              <img
+                src="./images/app-store.webp"
+                alt="Imagem do link para app store"
+                width="142"
+                height="42"
+              />
+            </a>
+          </div>
+
+          <div class="about-app-wrapper">
+            <img
+              data-app-preview="first-screen"
+              alt="Imagem da tela de jogadores"
+              width="224"
+              height="484"
+            />
+            <img
+              data-app-preview="second-screen"
+              alt="Imagem da tela de rodadas"
+              width="224"
+              height="484"
+            />
+            <img
+              data-app-preview="third-screen"
+              alt="Imagem da tela de classificação"
+              width="224"
+              height="484"
+            />
+          </div>
+
+          <div class="about-app-wrapper-mobile">
+            <img
+              data-app-preview="first-screen"
+              alt=""
+              width="108"
+              height="233"
+            />
+            <img
+              data-app-preview="second-screen"
+              alt=""
+              width="108"
+              height="233"
+            />
+            <img
+              data-app-preview="third-screen"
+              alt="Imagem da tela de classificação"
+              width="108"
+              height="233"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="quem-somos" class="who-we-are-section">
+      <div class="container who-we-are-section-info-wrapper">
+        <div>
+          <strong>Quem Somos</strong>
+          <p>
+            O Meu Ranking surge da experiência exitosa do sistema
+            rankingdetenis.com que desde 2016 já foi utilizado por centenas de
+            organizadores de rankings de tênis de todo Brasil. Com o crescimento
+            do Beach Tennis, adaptamos o sistema para organização de torneios e
+            incorporamos fielmente o regulamento da Confederação Brasileira de
+            Tênis (CBT), surgindo assim o Ranking Beach Tennis.
+          </p>
+          <p>
+            Agora, decidimos dar um passo além e trazer essa inovação e nossa
+            experiência a outros esportes ajudando clubes, academias,
+            condomínios e arenas a oferecerem um novo tipo de formato de
+            competição ao seu grupo de jogadores. Não fique preso ao formato
+            tradicional de torneios e crie rankings de simples e de duplas
+            usando nossa metodologia e mantenha seu grupo competindo o ano todo
+            e fazendo novas amizades através do esporte.
+          </p>
+        </div>
+
+        <div>
+          <img
+            src="./images/logo-ranking.webp"
+            alt="Logo em forma de bolinha de tênis"
+            width="173"
+            height="173"
+          />
+          <img
+            src="./images/beach-tennis-logo.svg"
+            alt="Logo do beach tennis, uma quadrinha a esquerda com a palavra ranking beach tennis a direita em branco"
+            width="262"
+            height="120"
+          />
+
+          <img
+            class="isMobile"
+            src="./images/logo-ranking-mobile.webp"
+            alt="Logo em forma de bolinha de tênis"
+            width="99"
+            height="99"
+          />
+          <img
+            class="isMobile"
+            src="./images/beach-tennis-logo-mobile.svg"
+            alt="Logo do beach tennis, uma quadrinha a esquerda com a palavra ranking beach tennis a direita em branco"
+            width="185"
+            height="84"
+          />
+        </div>
+      </div>
+    </section>
+
+    <footer class="container">
+      <img
+        src="./images/footer-logo.webp"
+        alt="Logo do footer quadra de tênis a esquerda e escrito meu ranking a direita"
+        width="229"
+        height="80"
+      />
+
+      <div>
+        <span></span>
+        <span>© 2024 Meu Ranking. Todos os direitos reservados.</span>
+      </div>
+    </footer>
+
+    <dialog class="video-wrapper">
+      <div id="videoContainer"></div>
+
+      <button onclick="handleCloseVideo()">
+        <img
+          src="./images/close-icon.svg"
+          alt="Ícone de X para fechar o modal"
+          width="30"
+          height="4"
+        />
+      </button>
+    </dialog>
+
+    <script src="https://cdn.jsdelivr.net/npm/keen-slider@6.8.5/keen-slider.min.js"></script>
+    <script src="./index.js"></script>
+  </body>
+</html>
