@@ -9,6 +9,7 @@ const appTabsButton = document.querySelectorAll(".app-button");
 const appWrapper = document.querySelector(".app-info-wrapper");
 const selectedSportsMessage = document.getElementById("selectedSportsMessage");
 const mobileItems = document.querySelectorAll(".mobile-item");
+const emptyDiv = document.querySelector(".empty-div");
 
 const animation = { duration: 20000, easing: (time) => time };
 
@@ -269,26 +270,29 @@ const handleCloseVideo = () => {
   document.documentElement.style.overflow = "auto";
 };
 
+videoModal.addEventListener('click', (event) => {
+  // Verifica se o clique ocorreu no próprio dialog (backdrop)
+  if (event.target === videoModal) {
+    handleCloseVideo();
+  }
+});
+
 const handleOpenSportsModal = () => {
   sportsModal.classList.toggle("show");
+  emptyDiv.classList.toggle("active");
 
   window.addEventListener("keydown", (e) => {
     if (e.key === "Escape" && sportsModal.classList.contains("show")) {
       sportsModal.classList.remove("show");
-    }
-  });
-
-  window.addEventListener("click", (e) => {
-    const validateToClose =
-      e.target !== selectedSportsMessage &&
-      !e.target.classList.contains("sports-modal") &&
-      !e.target.classList.contains("sport-label");
-
-    if (sportsModal.classList.contains("show") && validateToClose) {
-      sportsModal.classList.remove("show");
+      emptyDiv.classList.remove("active");
     }
   });
 };
+
+emptyDiv.addEventListener("click", () => {
+  sportsModal.classList.remove("show");
+  emptyDiv.classList.remove("active");
+});
 
 feedbacksTabsButtons.forEach((button) => {
   button.addEventListener("click", (e) => {

@@ -108,14 +108,13 @@ li {
 .video-wrapper {
   &[open] {
     border: 0;
-    background-color: rgba(0, 0, 0, 0.7);
+    background: transparent;
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 90vw;
     max-height: 85vh;
-    box-shadow: 0 0 0 100vw rgba(0, 0, 0, 0.7);
     overflow-y: hidden;
     display: flex;
     align-items: flex-start;
@@ -125,6 +124,10 @@ li {
     @media screen and (min-width: 1024px) {
       width: fit-content;
     }
+  }
+
+  &::backdrop {
+    background-color: rgba(0, 0, 0, 0.7);
   }
 
   & > button {
@@ -417,7 +420,7 @@ li {
   top: -40px;
   background-color: #333;
   width: 100vw;
-  height: 100vh;
+  height: 101vh;
   z-index: 500;
   padding: 28px;
   transform: translateY(-100%);
@@ -670,7 +673,7 @@ li {
 
   &.show {
     opacity: 1;
-    z-index: 1;
+    z-index: 3;
     pointer-events: all;
     transform: translateY(0px);
   }
@@ -685,6 +688,21 @@ li {
       font-size: 0.875rem;
       cursor: pointer;
     }
+  }
+}
+
+.empty-div {
+  width: 4000px;
+  height: 4000px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-90%, -80%);
+  z-index: 2;
+  display: none;
+
+  &.active {
+    display: block;
   }
 }
 
