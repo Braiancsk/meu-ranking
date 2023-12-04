@@ -97,6 +97,14 @@ li {
   pointer-events: none !important;
 }
 
+.mobile-only {
+  display: block;
+
+  @media screen and (min-width: 850px) {
+    display: none;
+  }
+}
+
 .video-wrapper {
   &[open] {
     border: 0;
@@ -309,15 +317,23 @@ li {
 
 .keen-slider:nth-of-type(2) {
   overflow: unset !important;
+  margin-top: -30px;
+
+  @media screen and (min-width: 850px) {
+    margin-top: 20px;
+  }
 }
 
 .hero-section {
-  background-image: url("./images/hero-background.webp");
-  height: 910px;
+  background-image: url("./images/hero-mobile.webp");
+  height: 982px;
   position: relative;
+  background-repeat: no-repeat;
+  background-size: cover;
 
   @media screen and (min-width: 850px) {
-    height: 745px;
+    background-image: url("./images/hero-background.webp");
+    height: 742px;
   }
 }
 
@@ -673,7 +689,7 @@ li {
 }
 
 .why-use-section {
-  margin-top: 238px;
+  margin-top: 280px;
 
   & > strong {
     color: #212121;

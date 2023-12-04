@@ -8,6 +8,7 @@ const feedbacksSlides = document.querySelectorAll(".feedback-slide");
 const appTabsButton = document.querySelectorAll(".app-button");
 const appWrapper = document.querySelector(".app-info-wrapper");
 const selectedSportsMessage = document.getElementById("selectedSportsMessage");
+const mobileItems = document.querySelectorAll(".mobile-item");
 
 const animation = { duration: 20000, easing: (time) => time };
 
@@ -427,3 +428,10 @@ function updateSelectedSportsMessage() {
     )}`;
   }
 }
+
+mobileItems.forEach((item) => {
+  item.addEventListener("click", () => {
+    mobileMenu.style.transform = "translateY(-100%)";
+    document.documentElement.style.overflow = "auto";
+  });
+});
