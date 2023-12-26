@@ -10,6 +10,8 @@ const appWrapper = document.querySelector(".app-info-wrapper");
 const selectedSportsMessage = document.getElementById("selectedSportsMessage");
 const mobileItems = document.querySelectorAll(".mobile-item");
 const emptyDiv = document.querySelector(".empty-div");
+const formContainer = document.querySelector(".form-container")
+const thanksMessageContainer = document.querySelector('.thanks-message')
 
 const animation = { duration: 20000, easing: (time) => time };
 
@@ -439,3 +441,10 @@ mobileItems.forEach((item) => {
     document.documentElement.style.overflow = "auto";
   });
 });
+
+
+function handleSubmit(event) {
+  event.preventDefault()
+  thanksMessageContainer.style.display = 'flex'
+  formContainer.style.display = 'none'
+}
